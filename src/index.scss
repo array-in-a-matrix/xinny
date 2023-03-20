@@ -355,6 +355,10 @@
   --bg-surface-extra-low-transparent: hsla(0, 0%, 0%, 0);
 
   --bg-badge: hsl(346, 100%, 50%);
+  --bg-positive: hsl(346, 100%, 50%);
+  --bg-positive-hover: hsl(346, 100%, 50%, 8%);
+  --bg-positive-active: hsl(346, 100%, 50%, 15%);
+  --bg-positive-border: hsl(346, 100%, 50%, 40%);
 
   /* text color | --tc-[background type]-[priority]: value */
   --tc-surface-high: rgb(249, 240, 2, 94%);
