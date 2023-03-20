@@ -79,6 +79,7 @@ function AppearanceSection() {
                 { text: 'Dark' },
                 { text: 'Butter' },
                 { text: 'Nord Dark' },
+                { text: 'Cyberpunk' },
               ]}
               onSelect={(index) => {
                 if (settings.useSystemTheme) toggleSystemTheme();

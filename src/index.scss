@@ -288,7 +288,8 @@
 
 .dark-theme,
 .butter-theme,
-.nord-dark-theme {
+.nord-dark-theme,
+.cyberpunk {
   @include dark-mode();
 }
 
@@ -342,6 +343,29 @@
   --ic-surface-high: rgb(216, 222, 233);
   --ic-surface-normal: rgba(216, 222, 233, 84%);
   --ic-surface-low: rgba(216, 222, 233, 64%);
+}
+
+.cyberpunk {
+  /* background color | --bg-[background type]: value */
+  --bg-surface: hsl(0, 0%, 0%);
+  --bg-surface-transparent: hsla(0, 0%, 0%, 0);
+  --bg-surface-low: hsl(0, 0%, 0%);
+  --bg-surface-low-transparent: hsla(0, 0%, 0%, 0);
+  --bg-surface-extra-low: hsl(58, 98%, 49%);
+  --bg-surface-extra-low-transparent: hsla(0, 0%, 0%, 0);
+
+  --bg-badge: hsl(346, 100%, 50%);
+
+  /* text color | --tc-[background type]-[priority]: value */
+  --tc-surface-high: rgb(249, 240, 2, 94%);
+  --tc-surface-normal: rgba(255, 251, 222, 94%);
+  --tc-surface-normal-low: rgba(255, 251, 222, 94%);
+  --tc-surface-low: rgba(255, 251, 222, 58%);
+
+  /* system icons | --ic-[background type]-[priority]: value */
+  --ic-surface-high: rgb(255, 251, 222);
+  --ic-surface-normal: rgba(255, 251, 222, 84%);
+  --ic-surface-low: rgba(255, 251, 222, 64%);
 }
 
 .font-primary {

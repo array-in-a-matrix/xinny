@@ -20,7 +20,7 @@ class Settings extends EventEmitter {
   constructor() {
     super();
 
-    this.themes = ['', 'silver-theme', 'dark-theme', 'butter-theme', 'nord-dark-theme'];
+    this.themes = ['', 'silver-theme', 'dark-theme', 'butter-theme', 'nord-dark-theme', 'cyberpunk'];
     this.themeIndex = this.getThemeIndex();
 
     this.useSystemTheme = this.getUseSystemTheme();
