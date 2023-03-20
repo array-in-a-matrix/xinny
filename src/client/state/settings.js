@@ -22,12 +22,8 @@ class Settings extends EventEmitter {
   constructor() {
     super();
 
-<<<<<<< HEAD
-    this.themes = ['', 'silver-theme', 'dark-theme', 'butter-theme', 'nord-dark-theme', 'cyberpunk', 'almond-dark'];
-=======
-    this.themeClasses = [lightTheme, silverTheme, darkTheme, butterTheme];
-    this.themes = ['', 'silver-theme', 'dark-theme', 'butter-theme'];
->>>>>>> 0b06bed (Refactor state & Custom editor (#1190))
+    this.themeClasses = [lightTheme, silverTheme, darkTheme, butterTheme, nordDarkTheme, cyberpunkTheme, almodDarkTheme];
+    this.themes = ['', 'silver-theme', 'dark-theme', 'butter-theme', 'nord-dark-theme', 'cyberpunk-theme', 'almond-dark-theme'];
     this.themeIndex = this.getThemeIndex();
 
     this.useSystemTheme = this.getUseSystemTheme();

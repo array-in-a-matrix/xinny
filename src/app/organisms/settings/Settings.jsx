@@ -80,7 +80,7 @@ function AppearanceSection() {
                 { text: 'Butter' },
                 { text: 'Nord Dark' },
                 { text: 'Cyberpunk' },
-                { text: 'Almond Dark'},
+                { text: 'Almond Dark' },
               ]}
               onSelect={(index) => {
                 if (settings.useSystemTheme) toggleSystemTheme();

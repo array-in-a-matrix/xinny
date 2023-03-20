@@ -1,7 +1,5 @@
 @use './app/partials/screen';
 
-<<<<<<< HEAD
-=======
 @font-face {
   font-family: Twemoji;
   src: url('../public/font/Twemoji.Mozilla.v.7.0.woff2'),
@@ -9,7 +7,6 @@
   font-display: swap;
 }
 
->>>>>>> 0b06bed (Refactor state & Custom editor (#1190))
 :root {
   /* background color | --bg-[background type]: value */
   --bg-surface: #ffffff;
@@ -194,20 +191,12 @@
   --fluid-push: cubic-bezier(0, 0.8, 0.67, 0.97);
   --fluid-slide-down: cubic-bezier(0.02, 0.82, 0.4, 0.96);
   --fluid-slide-up: cubic-bezier(0.13, 0.56, 0.25, 0.99);
-<<<<<<< HEAD
-
-  --font-primary: 'Roboto', sans-serif;
-  --font-secondary: 'Roboto', sans-serif;
-}
-
-=======
 
   --font-emoji: 'Twemoji';
   --font-primary: 'Roboto', var(--font-emoji), sans-serif;
   --font-secondary: 'Roboto', var(--font-emoji), sans-serif;
 }
 
->>>>>>> 0b06bed (Refactor state & Custom editor (#1190))
 .silver-theme {
   /* background color | --bg-[background type]: value */
   --bg-surface: hsl(0, 0%, 95%);
@@ -303,25 +292,7 @@
   /* override normal font weight for dark mode */
   --fw-normal: 350;
 
-<<<<<<< HEAD
-  --font-secondary: 'InterVariable', 'Roboto', sans-serif;
-}
-
-.dark-theme,
-.butter-theme,
-.nord-dark-theme,
-.cyberpunk,
-.almond-dark {
-  @include dark-mode();
-}
-
-@media (prefers-color-scheme: dark) {
-  .system-theme {
-    @include dark-mode();
-  }
-=======
   --font-secondary: 'InterVariable', 'Roboto', var(--font-emoji), sans-serif;
->>>>>>> 0b06bed (Refactor state & Custom editor (#1190))
 }
 
 .butter-theme {
@@ -370,7 +341,7 @@
   --ic-surface-low: rgba(216, 222, 233, 64%);
 }
 
-.cyberpunk {
+.cyberpunk-theme {
   /* background color | --bg-[background type]: value */
   --bg-surface: hsl(0, 0%, 0%);
   --bg-surface-transparent: hsla(0, 0%, 0%, 0);
@@ -402,7 +373,7 @@
   --ic-surface-low: rgba(255, 251, 222, 64%);
 }
 
-.almond-dark {
+.almond-dark-theme {
   /* background color | --bg-[background type]: value */
   --bg-surface: hsl(0, 0%, 0%);
   --bg-surface-transparent: hsla(0, 0%, 0%, 0);
