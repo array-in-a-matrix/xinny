@@ -289,7 +289,8 @@
 .dark-theme,
 .butter-theme,
 .nord-dark-theme,
-.cyberpunk {
+.cyberpunk,
+.almond-dark {
   @include dark-mode();
 }
 
@@ -370,6 +371,33 @@
   --ic-surface-high: rgb(255, 251, 222);
   --ic-surface-normal: rgba(255, 251, 222, 84%);
   --ic-surface-low: rgba(255, 251, 222, 64%);
+}
+
+.almond-dark {
+  /* background color | --bg-[background type]: value */
+  --bg-surface: hsl(0, 0%, 0%);
+  --bg-surface-transparent: hsla(0, 0%, 0%, 0);
+  --bg-surface-low: hsl(0, 0%, 1%);
+  --bg-surface-low-transparent: hsla(0, 0%, 0%, 0);
+  --bg-surface-extra-low: hsl(0, 0%, 2%);
+  --bg-surface-extra-low-transparent: hsla(0, 0%, 0%, 0);
+
+  --bg-badge: rgb(255, 251, 222, 90%);
+  --bg-positive: rgb(255, 251, 222, 90%);
+  --bg-positive-hover: rgba(255, 251, 222, 8%);
+  --bg-positive-active: rgba(255, 251, 222, 15%);
+  --bg-positive-border: rgba(255, 251, 222, 40%);
+
+  /* text color | --tc-[background type]-[priority]: value */
+  --tc-surface-high: rgb(255, 251, 222, 90%);
+  --tc-surface-normal: rgba(255, 251, 222, 90%);
+  --tc-surface-normal-low: rgba(255, 251, 222, 60%);
+  --tc-surface-low: rgba(255, 251, 222, 30%);
+
+  /* system icons | --ic-[background type]-[priority]: value */
+  --ic-surface-high: rgb(255, 251, 222, 90%);
+  --ic-surface-normal: rgba(255, 251, 222, 60%);
+  --ic-surface-low: rgba(255, 251, 222, 30%);
 }
 
 .font-primary {
