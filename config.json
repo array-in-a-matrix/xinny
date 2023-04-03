@@ -1,6 +1,7 @@
 {
-  "defaultHomeserver": 3,
+  "defaultHomeserver": 0,
   "homeserverList": [
+    "chatinamatrix.xyz",
     "converser.eu",
     "envs.net",
     "halogen.city",
