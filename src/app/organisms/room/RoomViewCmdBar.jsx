@@ -3,9 +3,6 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import './RoomViewCmdBar.scss';
 import parse from 'html-react-parser';
-import twemoji from 'twemoji';
-
-import { twemojify, TWEMOJI_BASE_URL } from '../../../util/twemojify';
 
 import initMatrix from '../../../client/initMatrix';
 import { getEmojiForCompletion } from '../emoji-board/custom-emoji';
@@ -51,19 +48,6 @@ function renderSuggestions({ prefix, option, suggestions }, fireCmd) {
   function renderEmojiSuggestion(emPrefix, emos) {
     const mx = initMatrix.matrixClient;
 
-    // Renders a small Twemoji
-    function renderTwemoji(emoji) {
-      return parse(
-        twemoji.parse(emoji.unicode, {
-          attributes: () => ({
-            unicode: emoji.unicode,
-            shortcodes: emoji.shortcodes?.toString(),
-          }),
-          base: TWEMOJI_BASE_URL,
-        })
-      );
-    }
-
     // Render a custom emoji
     function renderCustomEmoji(emoji) {
       return (
@@ -76,12 +60,12 @@ function renderSuggestions({ prefix, option, suggestions }, fireCmd) {
       );
     }
 
-    // Dynamically render either a custom emoji or twemoji based on what the input is
+    // Dynamically render either a custom emoji or emoji based on what the input is
     function renderEmoji(emoji) {
       if (emoji.mxc) {
         return renderCustomEmoji(emoji);
       }
-      return renderTwemoji(emoji);
+      return parse(emoji.unicode);
     }
 
     return emos.map((emoji) => (
@@ -111,7 +95,7 @@ function renderSuggestions({ prefix, option, suggestions }, fireCmd) {
           });
         }}
       >
-        <Text variant="b2">{twemojify(member.name)}</Text>
+        <Text variant="b2">{member.name}</Text>
       </CmdItem>
     ));
   }
