@@ -55,7 +55,6 @@ const EmojiGroup = React.memo(({ name, groupEmojis }) => {
                     unicode: emoji.unicode,
                     shortcodes: emoji.shortcodes?.toString(),
                     hexcode: emoji.hexcode,
-                    loading: 'lazy',
                   }),
                   base: TWEMOJI_BASE_URL,
                 })
@@ -340,7 +339,7 @@ function EmojiBoard({ onSelect, searchRef }) {
           </ScrollView>
         </div>
         <div ref={emojiInfo} className="emoji-board__content__info">
-          <div>{parse(twemoji.parse('🙂', { base: TWEMOJI_BASE_URL }))}</div>
+          <div>{parse('🙂')}</div>
           <Text>:slight_smile:</Text>
         </div>
       </div>

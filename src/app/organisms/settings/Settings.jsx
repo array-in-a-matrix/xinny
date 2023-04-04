@@ -80,7 +80,7 @@ function AppearanceSection() {
                 { text: 'Butter' },
                 { text: 'Nord Dark' },
                 { text: 'Cyberpunk' },
-                { text: 'Almond Dark'},
+                { text: 'Almond Dark' },
               ]}
               onSelect={(index) => {
                 if (settings.useSystemTheme) toggleSystemTheme();
@@ -324,28 +324,6 @@ function AboutSection() {
                   target="_blank"
                 >
                   Apache 2.0
-                </a>
-                .
-              </Text>
-            </li>
-            <li>
-              {/* eslint-disable-next-line react/jsx-one-expression-per-line */}
-              <Text>
-                The{' '}
-                <a href="https://twemoji.twitter.com" target="_blank" rel="noreferrer noopener">
-                  Twemoji
-                </a>{' '}
-                emoji art is ©{' '}
-                <a href="https://twemoji.twitter.com" target="_blank" rel="noreferrer noopener">
-                  Twitter, Inc and other contributors
-                </a>{' '}
-                used under the terms of{' '}
-                <a
-                  href="https://creativecommons.org/licenses/by/4.0/"
-                  target="_blank"
-                  rel="noreferrer noopener"
-                >
-                  CC-BY 4.0
                 </a>
                 .
               </Text>
