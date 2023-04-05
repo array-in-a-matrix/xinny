@@ -49,7 +49,6 @@ export function twemojify(text, opts, linkify = false, sanitize = true, maths = 
     content = sanitizeText(content);
   }
 
-  content = twemoji.parse(content, options);
   if (linkify) {
     content = linkifyHtml(content, {
       target: '_blank',
