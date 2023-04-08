@@ -151,7 +151,7 @@ function SpaceManageItem({
             : <Button variant="primary" onClick={handleJoin} disabled={isJoining}>{isJoining ? 'Joining...' : 'Join'}</Button>
         }
       </div>
-      {isExpand && roomInfo.topic && <Text variant="b2">{twemojify(roomInfo.topic, undefined, true)}</Text>}
+      {isExpand && roomInfo.topic && <Text variant="b2">{twemojify(roomInfo.topic)}</Text>}
     </div>
   );
 }

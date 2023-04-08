@@ -338,7 +338,7 @@ function EmojiBoard({ onSelect, searchRef }) {
           </ScrollView>
         </div>
         <div ref={emojiInfo} className="emoji-board__content__info">
-          <div>{parse(twemoji.parse('🙂', { base: TWEMOJI_BASE_URL }))}</div>
+          <div>{parse('🙂')}</div>
           <Text>:slight_smile:</Text>
         </div>
       </div>

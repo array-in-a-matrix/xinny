@@ -30,20 +30,16 @@ const mathOptions = {
 };
 
 /**
- * @param {string} text - text to twemojify
- * @param {object|undefined} opts - options for tweomoji.parse
- * @param {boolean} [linkify=false] - convert links to html tags (default: false)
+ * @param {string} text - text
+ * @param {undefined} opts
+ * @param {boolean} [linkify=true] - convert links to html tags (default: true)
  * @param {boolean} [sanitize=true] - sanitize html text (default: true)
- * @param {boolean} [maths=false] - render maths (default: false)
+ * @param {boolean} [maths=true] - render maths (default: true)
  * @returns React component
  */
-export function twemojify(text, opts, linkify = false, sanitize = true, maths = true) {
+export function twemojify(text, opts, linkify = true, sanitize = true, maths = true) {
   if (typeof text !== 'string') return text;
   let content = text;
-  const options = opts ?? { base: TWEMOJI_BASE_URL };
-  if (!options.base) {
-    options.base = TWEMOJI_BASE_URL;
-  }
 
   if (sanitize) {
     content = sanitizeText(content);

@@ -210,19 +210,13 @@ const MessageBody = React.memo(({
   let content = null;
   if (isCustomHTML) {
     try {
-      content = twemojify(
-        sanitizeCustomHtml(initMatrix.matrixClient, body),
-        undefined,
-        true,
-        false,
-        true,
-      );
+      content = twemojify(sanitizeCustomHtml(initMatrix.matrixClient, body), undefined, true, false);
     } catch {
       console.error('Malformed custom html: ', body);
-      content = twemojify(body, undefined);
+      content = twemojify(body);
     }
   } else {
-    content = twemojify(body, undefined, true);
+    content = twemojify(body);
   }
 
   // Determine if this message should render with large emojis

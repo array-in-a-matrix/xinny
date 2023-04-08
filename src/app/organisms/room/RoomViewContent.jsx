@@ -62,7 +62,7 @@ function RoomIntroContainer({ event, timeline }) {
   avatarSrc = isDM ? room.getAvatarFallbackMember()?.getAvatarUrl(mx.baseUrl, 80, 80, 'crop') : avatarSrc;
 
   const heading = isDM ? room.name : `Welcome to ${room.name}`;
-  const topic = twemojify(roomTopic || '', undefined, true);
+  const topic = twemojify(roomTopic || '');
   const nameJsx = twemojify(room.name);
   const desc = isDM
     ? (

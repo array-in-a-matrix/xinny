@@ -33,7 +33,7 @@ function RoomTile({
         </Text>
         {
           desc !== null && (typeof desc === 'string')
-            ? <Text className="room-tile__content__desc" variant="b2">{twemojify(desc, undefined, true)}</Text>
+            ? <Text className="room-tile__content__desc" variant="b2">{twemojify(desc)}</Text>
             : desc
         }
       </div>
