@@ -57,7 +57,6 @@ function StickerBoard({ roomId, onSelect }) {
             alt={sticker.shortcode}
             title={sticker.body ?? sticker.shortcode}
             data-mx-sticker={sticker.mxc}
-            loading="lazy"
           />
         ))}
       </div>

@@ -55,7 +55,6 @@ const EmojiGroup = React.memo(({ name, groupEmojis }) => {
                     unicode: emoji.unicode,
                     shortcodes: emoji.shortcodes?.toString(),
                     hexcode: emoji.hexcode,
-                    loading: 'lazy',
                   }),
                   base: TWEMOJI_BASE_URL,
                 })
@@ -65,7 +64,6 @@ const EmojiGroup = React.memo(({ name, groupEmojis }) => {
               <img
                 className="emoji"
                 draggable="false"
-                loading="lazy"
                 alt={emoji.shortcode}
                 unicode={`:${emoji.shortcode}:`}
                 shortcodes={emoji.shortcode}
