@@ -37,7 +37,7 @@ const mathOptions = {
  * @param {boolean} [maths=false] - render maths (default: false)
  * @returns React component
  */
-export function twemojify(text, opts, linkify = false, sanitize = true, maths = false) {
+export function twemojify(text, opts, linkify = false, sanitize = true, maths = true) {
   if (typeof text !== 'string') return text;
   let content = text;
   const options = opts ?? { base: TWEMOJI_BASE_URL };
