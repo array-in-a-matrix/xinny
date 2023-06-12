@@ -6,7 +6,7 @@ import parse from 'html-react-parser';
 import twemoji from 'twemoji';
 import { sanitizeText } from './sanitize';
 
-export const TWEMOJI_BASE_URL = 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/';
+export const TWEMOJI_BASE_URL = '';
 
 const Math = lazy(() => import('../app/atoms/math/Math'));
 
@@ -37,7 +37,7 @@ const mathOptions = {
  * @param {boolean} [maths=false] - render maths (default: false)
  * @returns React component
  */
-export function twemojify(text, opts, linkify = false, sanitize = true, maths = false) {
+export function twemojify(text, opts, linkify = true, sanitize = true, maths = true) {
   if (typeof text !== 'string') return text;
   let content = text;
   const options = opts ?? { base: TWEMOJI_BASE_URL };
