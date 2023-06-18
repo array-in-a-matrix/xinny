@@ -19,6 +19,7 @@ import {
   Icon,
   IconButton,
   Icons,
+  Line,
   Overlay,
   OverlayBackdrop,
   OverlayCenter,
@@ -49,6 +50,7 @@ import {
   EmoticonAutocomplete,
   createEmoticonElement,
   moveCursor,
+  resetEditorHistory,
 } from '../../components/editor';
 import { EmojiBoard, EmojiBoardTab } from '../../components/emoji-board';
 import { UseStateProvider } from '../../components/UseStateProvider';
@@ -95,6 +97,7 @@ import { MessageReply } from '../../molecules/message/Message';
 import colorMXID from '../../../util/colorMXID';
 import { parseReplyBody, parseReplyFormattedBody } from '../../utils/room';
 import { sanitizeText } from '../../utils/sanitize';
+import { getResizeObserverEntry, useResizeObserver } from '../../hooks/useResizeObserver';
 
 interface RoomInputProps {
   roomViewRef: RefObject<HTMLElement>;
@@ -158,6 +161,16 @@ export const RoomInput = forwardRef<HTMLDivElement, RoomInputProps>(
     const handlePaste = useFilePasteHandler(handleFiles);
     const dropZoneVisible = useFileDropZone(roomViewRef, handleFiles);
 
+    const [mobile, setMobile] = useState(document.body.clientWidth < 500);
+    useResizeObserver(
+      document.body,
+      useCallback((entries) => {
+        const bodyEntry = getResizeObserverEntry(document.body, entries);
+        if (bodyEntry && bodyEntry.contentRect.width < 500) setMobile(true);
+        else setMobile(false);
+      }, [])
+    );
+
     useEffect(() => {
       Transforms.insertFragment(editor, msgDraft);
     }, [editor, msgDraft]);
@@ -168,6 +181,7 @@ export const RoomInput = forwardRef<HTMLDivElement, RoomInputProps>(
         const parsedDraft = JSON.parse(JSON.stringify(editor.children));
         setMsgDraft(parsedDraft);
         resetEditor(editor);
+        resetEditorHistory(editor);
       };
     }, [roomId, editor, setMsgDraft]);
 
@@ -276,6 +290,7 @@ export const RoomInput = forwardRef<HTMLDivElement, RoomInputProps>(
       }
       mx.sendMessage(roomId, content);
       resetEditor(editor);
+      resetEditorHistory(editor);
       setReplyDraft();
       sendTypingStatus(false);
     }, [mx, roomId, editor, replyDraft, sendTypingStatus, setReplyDraft]);
@@ -500,27 +515,36 @@ export const RoomInput = forwardRef<HTMLDivElement, RoomInputProps>(
                   >
                     {(anchorRef) => (
                       <>
-                        <IconButton
-                          aria-pressed={emojiBoardTab === EmojiBoardTab.Sticker}
-                          onClick={() => setEmojiBoardTab(EmojiBoardTab.Sticker)}
-                          variant="SurfaceVariant"
-                          size="300"
-                          radii="300"
-                        >
-                          <Icon
-                            src={Icons.Sticker}
-                            filled={emojiBoardTab === EmojiBoardTab.Sticker}
-                          />
-                        </IconButton>
+                        {!mobile && (
+                          <IconButton
+                            aria-pressed={emojiBoardTab === EmojiBoardTab.Sticker}
+                            onClick={() => setEmojiBoardTab(EmojiBoardTab.Sticker)}
+                            variant="SurfaceVariant"
+                            size="300"
+                            radii="300"
+                          >
+                            <Icon
+                              src={Icons.Sticker}
+                              filled={emojiBoardTab === EmojiBoardTab.Sticker}
+                            />
+                          </IconButton>
+                        )}
                         <IconButton
                           ref={anchorRef}
-                          aria-pressed={emojiBoardTab === EmojiBoardTab.Emoji}
+                          aria-pressed={
+                            mobile ? !!emojiBoardTab : emojiBoardTab === EmojiBoardTab.Emoji
+                          }
                           onClick={() => setEmojiBoardTab(EmojiBoardTab.Emoji)}
                           variant="SurfaceVariant"
                           size="300"
                           radii="300"
                         >
-                          <Icon src={Icons.Smile} filled={emojiBoardTab === EmojiBoardTab.Emoji} />
+                          <Icon
+                            src={Icons.Smile}
+                            filled={
+                              mobile ? !!emojiBoardTab : emojiBoardTab === EmojiBoardTab.Emoji
+                            }
+                          />
                         </IconButton>
                       </>
                     )}
@@ -532,7 +556,14 @@ export const RoomInput = forwardRef<HTMLDivElement, RoomInputProps>(
               </IconButton>
             </>
           }
-          bottom={toolbar && <Toolbar />}
+          bottom={
+            toolbar && (
+              <div>
+                <Line variant="SurfaceVariant" size="300" />
+                <Toolbar />
+              </div>
+            )
+          }
         />
       </div>
     );

@@ -32,7 +32,9 @@ export const toggleMark = (editor: Editor, format: MarkType) => {
 };
 
 export const removeAllMark = (editor: Editor) => {
-  ALL_MARK_TYPE.forEach((mark) => Editor.removeMark(editor, mark));
+  ALL_MARK_TYPE.forEach((mark) => {
+    if (isMarkActive(editor, mark)) Editor.removeMark(editor, mark);
+  });
 };
 
 export const isBlockActive = (editor: Editor, format: BlockType) => {
@@ -122,6 +124,15 @@ export const resetEditor = (editor: Editor) => {
   });
 
   toggleBlock(editor, BlockType.Paragraph);
+  removeAllMark(editor);
+};
+
+export const resetEditorHistory = (editor: Editor) => {
+  // eslint-disable-next-line no-param-reassign
+  editor.history = {
+    undos: [],
+    redos: [],
+  };
 };
 
 export const createMentionElement = (
