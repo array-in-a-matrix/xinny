@@ -1,4 +1,9 @@
 # Cinny
+
+## Fork is now obsolete! Cinny now supports using the system emojies!
+![image](https://github.com/array-in-a-matrix/xinny/assets/78233840/527709c6-fdd3-4b1a-8a36-9d9f5082b49b)
+
+
 <p>
     <a href="https://github.com/ajbura/cinny/releases">
         <img alt="GitHub release downloads" src="https://img.shields.io/github/downloads/ajbura/cinny/total?logo=github&style=social"></a>
